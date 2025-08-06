@@ -2,23 +2,23 @@ import {
   getCurrentPositionAsync,
   requestForegroundPermissionsAsync,
 } from "expo-location";
-import WeatherCard from "../components/weatherCard";
-import { StatusBar } from "expo-status-bar";
-import { Cloud, GpsFix, MapPin, Snowflake } from "phosphor-react-native";
+import { GpsFix, MapPin } from "phosphor-react-native";
 import { useEffect, useState } from "react";
-import { ImageBackground, StyleSheet } from "react-native";
 import {
   Alert,
+  ImageBackground,
   Modal,
   ScrollView,
+  StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from "react-native";
 import MapView, { Marker } from "react-native-maps";
-import FiveDayForecast from "../components/fiveDayForecast";
 import AirConditions from "../components/airConditions";
+import FiveDayForecast from "../components/fiveDayForecast";
 import IconUsed from "../components/iconUsed";
+import WeatherCard from "../components/weatherCard";
 export default function Homepage() {
   const API_KEY = "3e3f19957f672efff572d53f3b71cca9";
   const [weatherData, setWeatherData] = useState(null);
@@ -212,9 +212,9 @@ export default function Homepage() {
           <View
             style={{
               flexDirection: "row",
-              gap: 10,
               marginTop: 20,
               marginHorizontal: 10,
+              gap: 10,
             }}
           >
             {todayForecast?.list?.slice(0, 8).map(function (item) {
