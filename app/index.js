@@ -1,12 +1,12 @@
+import { Video } from "expo-av";
 import {
   getCurrentPositionAsync,
   requestForegroundPermissionsAsync,
 } from "expo-location";
 import { GpsFix, MapPin } from "phosphor-react-native";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Alert,
-  ImageBackground,
   Modal,
   ScrollView,
   StyleSheet,
@@ -84,12 +84,23 @@ export default function Homepage() {
   useEffect(function () {
     getLocationInfo();
   }, []);
-
+  const video = React.useRef(null);
   return (
-    <ImageBackground
-      style={{ height: "100%" }}
-      source={require("../components/cloud2.jpg")}
-    >
+    // <ImageBackground
+    //   style={{ height: "100%" }}
+    //   source={require("../components/cloud2.jpg")}
+    // >
+    <View>
+      <Video
+        ref={video}
+        source={require("../components/cloud.mp4")}
+        style={StyleSheet.absoluteFill}
+        isLooping
+        shouldPlay
+        resizeMode="cover"
+        isMuted
+      />
+
       <ScrollView>
         <Modal visible={mapOpenState} transparent={true}>
           <View
@@ -172,13 +183,14 @@ export default function Homepage() {
               alignItems: "center",
               borderWidth: 1,
               padding: 5,
-              boxShadow: "0px 0px 5px 1px black",
+              boxShadow: "0px 0px 5px 0.5px black",
+              borderRadius: 5,
             }}
             onPress={getLocationInfo}
           >
             <Text
               style={{
-                fontSize: 20,
+                fontSize: 16,
                 fontWeight: 700,
               }}
             >
@@ -192,13 +204,14 @@ export default function Homepage() {
               alignItems: "center",
               borderWidth: 1,
               padding: 5,
-              boxShadow: "0px 0px 5px 1px black",
+              boxShadow: "0px 0px 5px 0.5px black",
+              borderRadius: 5,
             }}
             onPress={openMap}
           >
             <Text
               style={{
-                fontSize: 20,
+                fontSize: 16,
                 fontWeight: 700,
               }}
             >
@@ -213,7 +226,7 @@ export default function Homepage() {
             style={{
               flexDirection: "row",
               marginTop: 20,
-              marginHorizontal: 10,
+              marginHorizontal: 15,
               gap: 10,
             }}
           >
@@ -234,7 +247,8 @@ export default function Homepage() {
           })}
         </ScrollView>
       </ScrollView>
-    </ImageBackground>
+    </View>
+    // </ImageBackground>
   );
 }
 
@@ -255,12 +269,12 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   city: {
-    fontSize: 64,
+    fontSize: 52,
     color: "white",
     fontWeight: 600,
   },
   temp1: {
-    fontSize: 44,
+    fontSize: 40,
     color: "white",
     fontWeight: 600,
   },

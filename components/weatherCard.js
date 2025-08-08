@@ -1,6 +1,5 @@
 import { BlurView } from "expo-blur";
-import { Cloud } from "phosphor-react-native";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import IconUsed from "./iconUsed";
 
 export default function WeatherCard({ item }) {
@@ -21,7 +20,7 @@ export default function WeatherCard({ item }) {
 
   return (
     <View style={styles.cardWrapper}>
-      <BlurView intensity={100} style={styles.card1}>
+      <BlurView intensity={40} style={styles.card1}>
         <Text style={styles.time}>{convertToAMPM(reqtime)}</Text>
         <Text>{IconUsed(item.weather[0].description)}</Text>
         <Text style={styles.temp1}>
@@ -45,13 +44,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   temp1: {
-    fontSize: 26,
+    fontSize: 24,
     color: "charcoal",
   },
   weatherType: {
     fontSize: 20,
   },
   time: {
-    fontSize: 20,
+    fontSize: 16,
+    fontWeight: 500,
   },
 });

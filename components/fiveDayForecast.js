@@ -1,6 +1,5 @@
 import { BlurView } from "expo-blur";
-import { Cloud } from "phosphor-react-native";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import IconUsed from "./iconUsed";
 
 export default function FiveDayForecast({ item }) {
@@ -14,13 +13,13 @@ export default function FiveDayForecast({ item }) {
   //   return date.toLocaleDateString("en-US", { weekday: "long" });
   // };
 
-  const days = ["Sun", "Mon", "Tue", "wed", "Thurs", "friday", "sat"];
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Friday", "Sat"];
   let reqdate = new Date(date);
   let reqday = days[reqdate.getDay()];
 
   return (
     <View style={styles.cardWrapper}>
-      <BlurView intensity={100} style={styles.card1}>
+      <BlurView intensity={40} style={styles.card1}>
         <Text style={styles.time}>{reqday}</Text>
         <Text>{IconUsed(item.weather[0].description)}</Text>
         <Text style={styles.temp1}>
@@ -38,10 +37,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flex: 1,
     justifyContent: "space-around",
+    paddingVertical: 8,
   },
   temp1: {
-    fontSize: 24,
+    fontSize: 20,
     color: "black",
+    fontWeight: 500,
   },
   weatherType: {
     fontSize: 28,
@@ -54,6 +55,7 @@ const styles = StyleSheet.create({
     // boxShadow: "0px 0px 5px 2px black",
   },
   time: {
-    fontSize: 23,
+    fontSize: 21,
+    fontWeight: 500,
   },
 });

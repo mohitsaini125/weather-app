@@ -1,10 +1,9 @@
 import { BlurView } from "expo-blur";
-import { Cloud } from "phosphor-react-native";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 export default function AirConditions({ item }) {
   return (
     <View style={styles.cardWrapper}>
-      <BlurView intensity={100} style={styles.card1}>
+      <BlurView intensity={40} style={styles.card1}>
         <View style={styles.main}>
           <View>
             <Text style={styles.text1}>Feels Like</Text>
@@ -39,11 +38,11 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     overflow: "hidden",
     marginTop: 20,
-    marginHorizontal: 10,
+    marginHorizontal: 20,
     // boxShadow: "0px 0px 5px 2px black",
   },
   card1: {
-    padding: 10,
+    padding: 20,
     alignItems: "center",
   },
   temp1: {
@@ -57,14 +56,15 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     gap: 50,
+    marginLeft: 10,
   },
   text1: {
-    fontSize: 20,
-    color: "grey",
+    fontSize: 16,
+    color: "black",
     fontWeight: 700,
   },
   text2: {
-    fontSize: 24,
+    fontSize: 20,
     color: "white",
     marginBottom: 10,
     fontWeight: 700,
