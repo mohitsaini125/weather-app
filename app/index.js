@@ -1,9 +1,10 @@
 import { Video } from "expo-av";
+import { BlurView } from "expo-blur";
 import {
   getCurrentPositionAsync,
   requestForegroundPermissionsAsync,
 } from "expo-location";
-import { GpsFix, MapPin } from "phosphor-react-native";
+import { GpsFixIcon, MapPinIcon } from "phosphor-react-native";
 import React, { useEffect, useState } from "react";
 import {
   Alert,
@@ -119,8 +120,8 @@ export default function Homepage() {
               {currentMapLocation && (
                 <Marker
                   coordinate={{
-                    latitude: currentMapLocation.latitude,
-                    longitude: currentMapLocation.longitude,
+                    latitude: currentMapLocation?.latitude,
+                    longitude: currentMapLocation?.longitude,
                   }}
                 />
               )}
@@ -164,10 +165,20 @@ export default function Homepage() {
           <Text style={styles.temp1}>
             {(weatherData?.main.temp - 273).toFixed(2)}°C
           </Text>
-          {IconUsed(weatherData?.weather?.[0]?.description, 68)}
-          <Text style={styles.clouds}>
-            {weatherData?.weather?.[0]?.description}
-          </Text>
+          <BlurView
+            intensity={40}
+            style={{
+              overflow: "hidden",
+              alignItems: "center",
+              borderRadius: 10,
+              padding: 10,
+            }}
+          >
+            {IconUsed(weatherData?.weather?.[0]?.description, 68)}
+            <Text style={styles.clouds}>
+              {weatherData?.weather?.[0]?.description}
+            </Text>
+          </BlurView>
         </View>
         <View
           style={{
@@ -177,48 +188,57 @@ export default function Homepage() {
             margin: 10,
           }}
         >
-          <TouchableOpacity
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              borderWidth: 1,
-              padding: 5,
-              boxShadow: "0px 0px 5px 0.5px black",
-              borderRadius: 5,
-            }}
-            onPress={getLocationInfo}
+          <BlurView
+            intensity={75}
+            tint="dark"
+            style={{ borderRadius: 5, overflow: "hidden" }}
           >
-            <Text
+            <TouchableOpacity
               style={{
-                fontSize: 16,
-                fontWeight: 700,
+                flexDirection: "row",
+                alignItems: "center",
+                padding: 5,
+                borderRadius: 10,
               }}
+              onPress={getLocationInfo}
             >
-              Use current location
-            </Text>
-            <GpsFix size={24} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              borderWidth: 1,
-              padding: 5,
-              boxShadow: "0px 0px 5px 0.5px black",
-              borderRadius: 5,
-            }}
-            onPress={openMap}
+              <Text
+                style={{
+                  fontSize: 16,
+                  color: "white",
+                  fontWeight: 700,
+                }}
+              >
+                Use current location{" "}
+              </Text>
+              <GpsFixIcon size={24} />
+            </TouchableOpacity>
+          </BlurView>
+          <BlurView
+            intensity={75}
+            tint="dark"
+            style={{ borderRadius: 5, overflow: "hidden" }}
           >
-            <Text
+            <TouchableOpacity
               style={{
-                fontSize: 16,
-                fontWeight: 700,
+                flexDirection: "row",
+                alignItems: "center",
+                padding: 5,
               }}
+              onPress={openMap}
             >
-              choose on map:
-            </Text>
-            <MapPin size={24} onPress={handleMapPress} />
-          </TouchableOpacity>
+              <Text
+                style={{
+                  fontSize: 16,
+                  color: "white",
+                  fontWeight: 700,
+                }}
+              >
+                choose on map{" "}
+              </Text>
+              <MapPinIcon size={24} onPress={handleMapPress} />
+            </TouchableOpacity>
+          </BlurView>
         </View>
         <Text style={styles.forecast}>TODAY'S FORECAST</Text>
         <ScrollView horizontal={true}>
@@ -285,7 +305,7 @@ const styles = StyleSheet.create({
   },
   clouds: {
     fontSize: 32,
-    color: "white",
+    color: "black",
     fontWeight: 600,
   },
   fiveDayForecast: {

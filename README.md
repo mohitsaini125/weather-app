@@ -17,16 +17,16 @@ A cross-platform mobile app built with React Native, JavaScript, Expo, and the O
 
 ## 📸 Screenshots
 
-| Home Screen                      | Forecast                            | Map Selection                    | Selected Location Weather              |
-| -------------------------------- | ----------------------------------- | -------------------------------- | -------------------------------------- |
-| ![Login](assets/images/home.jpg) | ![Home](assets/images/forecast.jpg) | ![Search](assets/images/map.jpg) | ![Details](assets/images/selected.jpg) |
+| Home Screen                      | Forecast                        | Map Selection                     | Selected Location Weather          |
+| -------------------------------- | ------------------------------- | --------------------------------- | ---------------------------------- |
+| ![Login](assets/images/img3.jpg) | ![Home](assets/images/img4.jpg) | ![Search](assets/images/img1.jpg) | ![Details](assets/images/img2.jpg) |
 
 ---
 
 ## 🎥 Demo Video
 
 <a href="https://www.instagram.com/reel/DM_EBd7B4bb">
-  <img src="assets/images/videologo.jpg" alt="Watch Demo" width="200"/>
+  <img src="assets/images/img3.jpg" alt="Watch Demo" width="200"/>
 </a>
 
 ---

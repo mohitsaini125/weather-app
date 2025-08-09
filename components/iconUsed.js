@@ -1,26 +1,26 @@
 import {
-  Cloud,
-  CloudRain,
-  CloudSnow,
-  Snowflake,
-  Sun,
+  CloudIcon,
+  CloudRainIcon,
+  CloudSnowIcon,
+  SnowflakeIcon,
+  SunIcon,
 } from "phosphor-react-native";
 
 export default function IconUsed(item, size = 44) {
   switch (item) {
     case "light rain":
-      return <CloudRain size={size} />;
+      return <CloudRainIcon size={size} />;
     case "rain":
-      return <CloudRain size={size} />;
+      return <CloudRainIcon size={size} />;
     case "heavy rain":
-      return <CloudRain size={size} />;
+      return <CloudRainIcon size={size} />;
     case "clear sky":
-      return <Sun size={size} />;
+      return <SunIcon size={size} />;
     case "snow":
-      return <CloudSnow size={size} />;
+      return <CloudSnowIcon size={size} />;
     case "light snow":
-      return <Snowflake size={size} />;
+      return <SnowflakeIcon size={size} />;
     default:
-      return <Cloud size={size} />;
+      return <CloudIcon size={size} />;
   }
 }
