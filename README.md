@@ -25,7 +25,7 @@ A cross-platform mobile app built with React Native, JavaScript, Expo, and the O
 
 ## 🎥 Demo Video
 
-<a href="https://www.instagram.com/reel/DM_EBd7B4bb">
+<a href="https://drive.google.com/file/d/1cnVJGFhgWev3tSPnEYfo2vofMJcw1xPX/view?usp=sharing">
   <img src="assets/images/img3.jpg" alt="Watch Demo" width="200"/>
 </a>
 
